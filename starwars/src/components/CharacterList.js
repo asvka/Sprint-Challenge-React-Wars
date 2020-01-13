@@ -22,8 +22,8 @@ export default function CharacterList() {
                         <CharacterCard
                         key={i}
                         name={character.name}
-                        species={character.species}
-                        homeworld={character.homeworld}
+                        gender={character.gender}
+                        birth_year={character.birth_year}
                         height={character.height}
                         />
                     );

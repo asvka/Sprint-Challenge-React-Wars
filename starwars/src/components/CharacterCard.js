@@ -6,9 +6,9 @@ const CharacterCard = props => {
     <Card>
       <CardBody className="char-list">
         <CardTitle>Name: {props.name}</CardTitle>
-        <CardText>Species: {props.species}</CardText>
-        <CardSubtitle>Homeworld: {props.homeworld}</CardSubtitle>
-        <CardSubtitle>Height: {props.height}</CardSubtitle>
+        <CardText>Gender: {props.gender}</CardText>
+        <CardText>Height: {props.height}</CardText>
+        <CardSubtitle>Birth Year: {props.birth_year}</CardSubtitle>
       </CardBody>
     </Card>
   );
