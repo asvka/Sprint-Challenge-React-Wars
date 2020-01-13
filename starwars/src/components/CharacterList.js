@@ -1,30 +1,33 @@
-import React, { useState, useEffect, Container, Row } from 'react';
-import axios from 'axios';
-import { Card, CardBody, CardText, CardSubtitle } from 'reactstrap';
+import React, { useState, useEffect} from "react";
+import axios from "axios";
+import CharacterCard from "./CharacterCard.js";
 
 export default function CharacterList() {
     const [character, setCharacter] = useState([]);
 
     useEffect(() => {
         axios
-        .get('https://swapi.co/api/people/')
+        .get(`https://swapi.co/api/people/`)
         .then(res => {
-            console.log(res);
+            setCharacter(res.data.results);
         })
-        .catch(err => {
-            console.log(`These are not the droids you're searching for.`, err);
-        });
+        .catch(err => console.log('These are not the droids you are searching for.', err));
     }, []);
     console.log(character);
 
     return (
-        <Container>
-            <Row>
-                {character.map(char)=>{
-                    key = 
-                }}
-            </Row>
-        </Container>
-    )
-
+        <div className="character">
+                {character.map((character, i) => {
+                    return(
+                        <CharacterCard
+                        key={i}
+                        name={character.name}
+                        species={character.species}
+                        homeworld={character.homeworld}
+                        height={character.height}
+                        />
+                    );
+                })}
+        </div>
+    );
 }
